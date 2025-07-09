@@ -31,8 +31,6 @@ namespace UI
 
         private int LvlUpPrice => _settings.BasePrice * (_level + 1);
         
-        //todo revenue field
-        
         public void Setup(BusinessSettings settings, EcsWorld world, EcsEntity entity, float revenueProgressValue, int level)
         {
             _settings = settings;
@@ -46,6 +44,23 @@ namespace UI
             _upgrade2PriceField.text = settings.UpgradesList.Last().Price.ToString();
             _upgrade1DescriptionField.text = settings.UpgradesList.First().Modifier.ToString();
             _upgrade2DescriptionField.text = settings.UpgradesList.Last().Modifier.ToString();
+
+            UpdateRevenueField();
+        }
+
+        private void UpdateRevenueField()
+        {
+            var states = _businessEntity.Get<UpgradesComponent>().UpgradeStates;
+            
+            var modifier = 1 + states
+                .Where(kv => kv.Value)
+                .Select(kv => kv.Key)
+                .Select(id => _settings.UpgradesList.First(us => us.Id == id))
+                .Sum(us => us.Modifier);
+
+            var revenue = _level * _settings.BaseRevenue * modifier;
+
+            _revenueField.text = $"{(int) revenue}";
         }
         
         private void Start()
@@ -93,6 +108,8 @@ namespace UI
             _level++;
             _levelField.text = _level.ToString();
             _lvlUpPriceField.text = LvlUpPrice.ToString();
+
+            UpdateRevenueField();
         }
         
         private void OnBusinessUpgraded(string businessId, string upgradeId)
@@ -102,6 +119,8 @@ namespace UI
 
             if (_settings.UpgradesList.First().Id == upgradeId) _upgrade1Button.interactable = false;
             if (_settings.UpgradesList.Last().Id == upgradeId) _upgrade2Button.interactable = false;
+            
+            UpdateRevenueField();
         }
 
         public void OnLlvUpButtonClick()
