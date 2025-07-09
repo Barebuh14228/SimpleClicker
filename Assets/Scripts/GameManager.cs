@@ -6,6 +6,14 @@ using Systems;
 using UI;
 using UnityEngine;
 
+//todo list
+
+//дефолтное значение балланса
+//система создания бизнесов
+//сохранение/загрузка
+//текста
+//верстка: дизейблер и оптимизация
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private BusinessSettingsList _settingsList;
