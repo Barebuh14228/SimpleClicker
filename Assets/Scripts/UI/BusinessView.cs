@@ -17,7 +17,7 @@ namespace UI
         
         public void Setup(string businessId, int level, float revenueProgress, UpgradeSettings upgrade1Settings, UpgradeSettings upgrade2Settings)
         {
-            _nameField.text = businessId; //todo get text
+            _nameField.text = TextProvider.Get(businessId);
             
             _levelView.Setup(businessId, level);
             _revenueView.Setup(businessId);

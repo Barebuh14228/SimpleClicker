@@ -35,9 +35,11 @@ namespace UI
             _upgradeId = settings.Id;
             _price = settings.Price;
 
-            _nameField.text = $"\"{settings.Id}\"" ; //todo get text
-            _priceField.text = $"Цена: {settings.Price} $"; //todo get text
-            _descriptionField.text = $"Доход: + {settings.Modifier * 100} %"; //todo get text
+            var upgradeTitle = TextProvider.Get(_upgradeId);
+            
+            _nameField.text = TextProvider.Get("quote_text", upgradeTitle);
+            _priceField.text = TextProvider.Get("price_field", settings.Price);
+            _descriptionField.text = TextProvider.Get("revenue_mod_field", settings.Modifier * 100);
         }
         
         private void OnBalanceChanged(float balance)
@@ -55,7 +57,7 @@ namespace UI
 
             _isPurchased = true;
             _button.interactable = false;
-            _priceField.text = "КУПЛЕНО !"; //todo get text
+            _priceField.text = TextProvider.Get("purchased");
         }
 
         public void OnClick()

@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSettings: {fileID: 11400000, guid: 88dacb2b87ad52f46812c89f8389c5dc, type: 2}
+  _textSettings: {fileID: 11400000, guid: 02e56788e823630418791a1701422f90, type: 2}
   _businessViewParent: {fileID: 1627080740}
 --- !u!4 &1240486664
 Transform:

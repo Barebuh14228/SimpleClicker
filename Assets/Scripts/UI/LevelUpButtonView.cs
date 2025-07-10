@@ -41,7 +41,7 @@ namespace UI
             
             _price = price;
             
-            _priceField.text = $"Цена: {_price:N0} $"; //todo get text
+            _priceField.text = TextProvider.Get("price_field", $"{_price:N0}");
         }
         
         public void OnClick()

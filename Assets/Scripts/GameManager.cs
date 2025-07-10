@@ -2,11 +2,11 @@ using Leopotam.Ecs;
 using Settings;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameSettings _gameSettings;
+    [SerializeField] private TextSettings _textSettings;
     [SerializeField] private BusinessViewParent _businessViewParent;
     
     private EcsWorld _world;
@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        TextProvider.Init(_textSettings.Texts);
+        
         GameController.InjectInModel(_gameSettings);
         GameController.InjectInModel(_businessViewParent);
         GameController.Init();

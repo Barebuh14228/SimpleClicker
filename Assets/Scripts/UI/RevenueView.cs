@@ -29,7 +29,7 @@ namespace UI
             if (businessId != _businessId)
                 return;
             
-            _revenueField.text = $"{revenue:N0} $"; //todo get text?
+            _revenueField.text = TextProvider.Get("money_field", $"{revenue:N0}");
         }
     }
 }

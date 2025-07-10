@@ -4,7 +4,6 @@ using Systems;
 
 //todo list
 
-//текста
 //codestyle
 //refactor
 
