@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Components;
 using Leopotam.Ecs;
@@ -8,10 +9,10 @@ namespace Systems
     public class UpgradePurchaseSystem : IEcsRunSystem
     {
         private EcsWorld _world;
-        private EcsFilter<BusinessComponent> _businessFilter;
-        private EcsFilter<BusinessUpgradeRequest> _requestFilter;
+        private EcsFilter<Business> _businessFilter;
+        private EcsFilter<UpgradeRequest> _requestFilter;
         
-        private BusinessSettingsList _settingsList;
+        private GameSettings _gameSettings;
         
         public void Run()
         {
@@ -20,18 +21,19 @@ namespace Systems
                 var businessId = _requestFilter.Get1(i).BusinessId;
                 var upgradeId = _requestFilter.Get1(i).UpgradeId;
 
-                var price = _settingsList
-                    .SettingsList.First(bs => bs.Id == businessId)
-                    .UpgradesList.First(us => us.Id == upgradeId)
-                    .Price;
+                var businessSettings = _gameSettings.BusinessSettingsList.First(bs => bs.Id == businessId);
+                var upgradesList = new List<UpgradeSettings>()
+                    { businessSettings.Upgrade1Settings, businessSettings.Upgrade2Settings };
+                
+                var price = upgradesList.First(us => us.Id == upgradeId).Price;
                 
                 foreach (var j in _businessFilter)
                 {
                     if (_businessFilter.Get1(j).Id != businessId)
                         continue;
                     
-                    _businessFilter.GetEntity(j).Replace(new UpgradeComponent { Id = upgradeId});
-                    _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = -price });
+                    _businessFilter.GetEntity(j).Replace(new Upgrade { Id = upgradeId } );
+                    _world.NewEntity().Replace(new AddBalance() { Value = -price } );
                 }
             }
         }

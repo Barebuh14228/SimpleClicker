@@ -1,6 +1,9 @@
+using System;
+
 namespace Components
 {
-    public struct BalanceComponent
+    [Serializable]
+    public struct Balance
     {
         public float Value;
     }

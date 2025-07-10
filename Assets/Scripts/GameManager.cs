@@ -2,17 +2,11 @@ using Leopotam.Ecs;
 using Settings;
 using UI;
 using UnityEngine;
-
-//todo list
-
-//система создания бизнесов
-//сохранение/загрузка
-//текста
-//верстка: дизейблер и оптимизация
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private BusinessSettingsList _settingsList;
+    [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private BusinessViewParent _businessViewParent;
     
     private EcsWorld _world;
@@ -20,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameController.InjectInModel(_settingsList);
+        GameController.InjectInModel(_gameSettings);
         GameController.InjectInModel(_businessViewParent);
         GameController.Init();
     }

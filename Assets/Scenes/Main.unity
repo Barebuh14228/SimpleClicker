@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3e47751d0974e4a8041b1a90d2beb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsList: {fileID: 11400000, guid: 88dacb2b87ad52f46812c89f8389c5dc, type: 2}
+  _gameSettings: {fileID: 11400000, guid: 88dacb2b87ad52f46812c89f8389c5dc, type: 2}
   _businessViewParent: {fileID: 1627080740}
 --- !u!4 &1240486664
 Transform:

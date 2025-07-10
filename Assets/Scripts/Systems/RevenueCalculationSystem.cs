@@ -7,11 +7,11 @@ namespace Systems
 {
     public class RevenueCalculationSystem : IEcsRunSystem
     {
-        private EcsFilter<BusinessComponent, UpgradeStatesComponent, LevelUpComponent> _levelUpFilter;
-        private EcsFilter<BusinessComponent, UpgradeStatesComponent, UpgradeComponent> _upgradeFilter;
-        private EcsFilter<BusinessComponent, UpgradeStatesComponent, New> _newFilter;
+        private EcsFilter<Business, RevenueModifier, LevelUp> _levelUpFilter;
+        private EcsFilter<Business, RevenueModifier, Upgrade> _upgradeFilter;
+        private EcsFilter<Business, RevenueModifier, NewComponent> _newFilter;
         
-        private BusinessSettingsList _settingsList;
+        private GameSettings _gameSettings;
         
         public void Run()
         {
@@ -31,20 +31,13 @@ namespace Systems
             }
         }
 
-        private void CalculateRevenue(BusinessComponent businessComponent, UpgradeStatesComponent upgradeStatesComponent)
+        private void CalculateRevenue(Business business, RevenueModifier modifier)
         {
-            var id = businessComponent.Id;
-            var level = businessComponent.Level;
-            var states = upgradeStatesComponent.UpgradeStates;
-            var settings = _settingsList.SettingsList.First(bs => bs.Id == id);
-            
-            var modifier = 1 + states
-                .Where(kv => kv.Value)
-                .Select(kv => kv.Key)
-                .Select(id => settings.UpgradesList.First(us => us.Id == id))
-                .Sum(us => us.Modifier);
+            var id = business.Id;
+            var level = business.Level;
+            var settings = _gameSettings.BusinessSettingsList.First(bs => bs.Id == id);
 
-            var revenue = level * settings.BaseRevenue * modifier;
+            var revenue = level * settings.BaseRevenue * (1 + modifier.Value);
             
             GameController.NotifyBusinessRevenueChanged(id, revenue);
         }

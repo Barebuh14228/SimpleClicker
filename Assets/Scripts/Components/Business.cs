@@ -1,6 +1,9 @@
+using System;
+
 namespace Components
 {
-    public struct BusinessComponent
+    [Serializable]
+    public struct Business
     {
         public string Id;
         public int Level;

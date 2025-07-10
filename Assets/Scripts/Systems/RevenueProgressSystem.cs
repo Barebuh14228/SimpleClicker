@@ -9,9 +9,9 @@ namespace Systems
 {
     public class RevenueProgressSystem : IEcsRunSystem
     {
-        private EcsFilter<BusinessComponent, RevenueProgressComponent> _filter;
+        private EcsFilter<Business, RevenueProgress> _filter;
 
-        private BusinessSettingsList _settingsList;
+        private GameSettings _gameSettings;
         
         public void Run()
         {
@@ -23,7 +23,7 @@ namespace Systems
                 var business = _filter.Get1(i);
                 ref var revenueProgress = ref _filter.Get2(i);
                 
-                var delay = _settingsList.SettingsList.First(bs => bs.Id == business.Id).Delay;
+                var delay = _gameSettings.BusinessSettingsList.First(bs => bs.Id == business.Id).Delay;
 
                 var addProgress = Time.deltaTime / delay;
                 
@@ -32,7 +32,7 @@ namespace Systems
                 if (revenueProgress.Progress >= 1)
                 {
                     revenueProgress.Progress = 0;
-                    _filter.GetEntity(i).Replace(new PaymentComponent());
+                    _filter.GetEntity(i).Replace(new Revenue());
                 }
                 
                 GameController.NotifyRevenueProgressChanged(business.Id, revenueProgress.Progress);

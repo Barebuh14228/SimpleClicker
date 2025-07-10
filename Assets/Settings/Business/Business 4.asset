@@ -16,6 +16,5 @@ MonoBehaviour:
   _delay: 17
   _baseRevenue: 1000
   _basePrice: 1000
-  _upgradesList:
-  - {fileID: 11400000, guid: 62c59387292416744aeafeaaae52b5c0, type: 2}
-  - {fileID: 11400000, guid: 5cf13ade6e8a43e489c7bd133df5a8eb, type: 2}
+  _upgrade1Settings: {fileID: 11400000, guid: 62c59387292416744aeafeaaae52b5c0, type: 2}
+  _upgrade2Settings: {fileID: 11400000, guid: 5cf13ade6e8a43e489c7bd133df5a8eb, type: 2}

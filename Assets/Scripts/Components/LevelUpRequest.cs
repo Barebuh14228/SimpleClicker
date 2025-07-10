@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct BusinessLevelUpRequest
+    public struct LevelUpRequest
     {
         public string BusinessId;
     }

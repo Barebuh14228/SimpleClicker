@@ -5,7 +5,7 @@ namespace Systems
 {
     public class LevelUpSystem : IEcsRunSystem
     {
-        private EcsFilter<BusinessComponent, LevelUpComponent> _levelUpFilter;
+        private EcsFilter<Business, LevelUp> _levelUpFilter;
         
         public void Run()
         {

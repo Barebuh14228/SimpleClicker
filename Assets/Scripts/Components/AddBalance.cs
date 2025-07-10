@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct ChangeBalanceComponent
+    public struct AddBalance
     {
         public float Value;
     }

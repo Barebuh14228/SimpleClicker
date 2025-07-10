@@ -7,10 +7,10 @@ namespace Systems
 {
     public class LevelUpPriceCalculationSystem : IEcsRunSystem
     {
-        private EcsFilter<BusinessComponent, LevelUpComponent> _levelUpFilter;
-        private EcsFilter<BusinessComponent, New> _newFilter;
+        private EcsFilter<Business, LevelUp> _levelUpFilter;
+        private EcsFilter<Business, NewComponent> _newFilter;
         
-        private BusinessSettingsList _settingsList;
+        private GameSettings _gameSettings;
         
         public void Run()
         {
@@ -25,11 +25,11 @@ namespace Systems
             }
         }
 
-        private void CalculateLevelUpPrice(BusinessComponent businessComponent)
+        private void CalculateLevelUpPrice(Business business)
         {
-            var id = businessComponent.Id;
-            var level = businessComponent.Level;
-            var settings = _settingsList.SettingsList.First(bs => bs.Id == id);
+            var id = business.Id;
+            var level = business.Level;
+            var settings = _gameSettings.BusinessSettingsList.First(bs => bs.Id == id);
 
             var levelUpPrice = settings.BasePrice * (level + 1);
             

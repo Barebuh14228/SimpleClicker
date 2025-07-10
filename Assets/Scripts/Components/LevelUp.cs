@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct PaymentComponent
+    public struct LevelUp
     {
         
     }

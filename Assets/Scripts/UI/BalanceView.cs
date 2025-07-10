@@ -19,7 +19,7 @@ namespace UI
         
         private void OnBalanceChanged(float balance)
         {
-            _balanceField.text = $"{balance:N0}";
+            _balanceField.text = $"{balance:N0} $";
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Linq;
 using Settings;
 using TMPro;
 using UnityEngine;
@@ -12,20 +11,21 @@ namespace UI
         [SerializeField] private LevelView _levelView;
         [SerializeField] private RevenueView _revenueView;
         [SerializeField] private LevelUpButtonView _levelUpButton;
+        
         [SerializeField] private UpgradeButtonView _upgrade1Button;
         [SerializeField] private UpgradeButtonView _upgrade2Button;
         
-        public void Setup(BusinessSettings settings, float revenueProgressValue, int level)
+        public void Setup(string businessId, int level, float revenueProgress, UpgradeSettings upgrade1Settings, UpgradeSettings upgrade2Settings)
         {
-            _nameField.text = settings.Id; //todo get text
+            _nameField.text = businessId; //todo get text
             
-            _levelView.Setup(settings.Id, level);
-            _revenueView.Setup(settings.Id);
-            _levelUpButton.Setup(settings.Id);
-            _revenueProgressView.Setup(settings.Id, revenueProgressValue);
+            _levelView.Setup(businessId, level);
+            _revenueView.Setup(businessId);
+            _levelUpButton.Setup(businessId);
+            _revenueProgressView.Setup(businessId, revenueProgress);
             
-            _upgrade1Button.Setup(settings.Id, settings.UpgradesList.First()); //todo
-            _upgrade2Button.Setup(settings.Id, settings.UpgradesList.Last()); //todo
+            _upgrade1Button.Setup(businessId, upgrade1Settings);
+            _upgrade2Button.Setup(businessId, upgrade2Settings);
         }
     }
 }

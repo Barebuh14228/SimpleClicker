@@ -69,7 +69,7 @@ public static class GameController
 
     public static void SendLevelUpRequest(string businessId)
     {
-        _model.SendRequest(new BusinessLevelUpRequest()
+        _model.SendRequest(new LevelUpRequest()
         {
             BusinessId = businessId
         });
@@ -77,7 +77,7 @@ public static class GameController
 
     public static void SendUpgradeRequest(string businessId, string upgradeId)
     {
-        _model.SendRequest(new BusinessUpgradeRequest()
+        _model.SendRequest(new UpgradeRequest()
         {
             BusinessId = businessId,
             UpgradeId = upgradeId

@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct New
+    public struct Revenue
     {
         
     }

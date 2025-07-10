@@ -2,6 +2,11 @@ using Components;
 using Leopotam.Ecs;
 using Systems;
 
+//todo list
+
+//текста
+//codestyle
+
 public class GameModel
 {
     private EcsWorld _world;
@@ -11,7 +16,10 @@ public class GameModel
     {
         _world = new EcsWorld();
         _systems = new EcsSystems(_world)
-            .Add(new MainInitSystem())
+            .Add(new LoadSystem())
+            .Add(new EntitiesRestoreSystem())
+            .Add(new BalanceCreationSystem())
+            .Add(new BusinessCreationSystem())
             .Add(new UpgradePurchaseSystem())
             .Add(new UpgradeSystem())
             .Add(new LevelUpPurchaseSystem())
@@ -21,12 +29,15 @@ public class GameModel
             .Add(new RevenueProgressSystem())
             .Add(new RevenuePaymentSystem())
             .Add(new BalanceSystem())
-            .OneFrame<BusinessUpgradeRequest>()
-            .OneFrame<UpgradeComponent>()
-            .OneFrame<BusinessLevelUpRequest>()
-            .OneFrame<LevelUpComponent>()
-            .OneFrame<PaymentComponent>()
-            .OneFrame<ChangeBalanceComponent>();
+            .Add(new SaveSystem())
+            .OneFrame<UpgradeRequest>()
+            .OneFrame<Upgrade>()
+            .OneFrame<LevelUpRequest>()
+            .OneFrame<LevelUp>()
+            .OneFrame<Revenue>()
+            .OneFrame<AddBalance>()
+            .OneFrame<NewComponent>()
+            .OneFrame<LoadedData>();
     }
     
     public void Init()

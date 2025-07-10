@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4cbc524f2b74bfe850f81d69ca22518, type: 3}
-  m_Name: BusinessSettingsList
+  m_Name: GameSettings
   m_EditorClassIdentifier: 
-  _settingsList:
+  _defaultBalance: 1000
+  _businessSettingsList:
   - {fileID: 11400000, guid: 73889e71418f18c45a6527989bf05c6a, type: 2}
   - {fileID: 11400000, guid: 03c523b5a22302c4786ae9be394f5aa2, type: 2}
   - {fileID: 11400000, guid: f7683b7ed92537141b09a521ea9c0886, type: 2}

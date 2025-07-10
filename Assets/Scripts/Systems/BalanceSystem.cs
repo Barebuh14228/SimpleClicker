@@ -5,11 +5,17 @@ namespace Systems
 {
     public class BalanceSystem : IEcsRunSystem
     {
-        private EcsFilter<BalanceComponent> _balanceFilter;
-        private EcsFilter<ChangeBalanceComponent> _changeBalanceFilter;
+        private EcsFilter<Balance> _balanceFilter;
+        private EcsFilter<Balance, NewComponent> _createdBalanceFilter;
+        private EcsFilter<AddBalance> _changeBalanceFilter;
         
         public void Run()
         {
+            foreach (var i in _createdBalanceFilter)
+            {
+                GameController.NotifyBalanceChanged(_createdBalanceFilter.Get1(i).Value);
+            }
+            
             var balanceDiff = 0f;
 
             foreach (var i in _changeBalanceFilter)
