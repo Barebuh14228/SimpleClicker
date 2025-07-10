@@ -610,9 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsList: {fileID: 11400000, guid: 88dacb2b87ad52f46812c89f8389c5dc, type: 2}
-  _businessViewPrefab: {fileID: 139179909681394407, guid: 0d59bf473bb641e44aabb5b9a7fe4136, type: 3}
-  _businessParent: {fileID: 1627080737}
-  _balanceView: {fileID: 1442954295}
+  _businessViewParent: {fileID: 1627080740}
 --- !u!4 &1240486664
 Transform:
   m_ObjectHideFlags: 0
@@ -952,8 +950,9 @@ GameObject:
   - component: {fileID: 1627080737}
   - component: {fileID: 1627080739}
   - component: {fileID: 1627080738}
+  - component: {fileID: 1627080740}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Business View Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,6 +1017,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1627080740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627080736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae1ee33d0a54086b402b568ed8e7063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _businessViewPrefab: {fileID: 139179909681394407, guid: 0d59bf473bb641e44aabb5b9a7fe4136, type: 3}
 --- !u!1 &1634539840
 GameObject:
   m_ObjectHideFlags: 0

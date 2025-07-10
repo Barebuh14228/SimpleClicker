@@ -1,4 +1,3 @@
-using System;
 using Components;
 using Leopotam.Ecs;
 
@@ -6,8 +5,6 @@ namespace Systems
 {
     public class UpgradePurchaseSystem : IEcsRunSystem
     {
-        public static event Action<string, string> OnBusinessUpgraded;
-        
         private EcsFilter<BusinessComponent, UpgradesComponent, UpgradePurchaseComponent> _upgradeFilter;
         
         public void Run()
@@ -23,7 +20,7 @@ namespace Systems
 
                 upgradeStates[purchasedUpgrade] = true;
                 
-                OnBusinessUpgraded?.Invoke(businessId, purchasedUpgrade);
+                GameController.NotifyBusinessUpgraded(businessId, purchasedUpgrade);
             }
         }
     }

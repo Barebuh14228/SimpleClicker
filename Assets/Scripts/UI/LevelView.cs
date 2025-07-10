@@ -1,4 +1,3 @@
-using Systems;
 using TMPro;
 using UnityEngine;
 
@@ -12,12 +11,12 @@ namespace UI
         
         private void Start()
         {
-            LvlUpSystem.OnBusinessLvlUp += OnBusinessLvlUp;
+            GameController.OnBusinessLevelUp += OnBusinessLevelUp;
         }
 
         private void OnDestroy()
         {
-            LvlUpSystem.OnBusinessLvlUp -= OnBusinessLvlUp;
+            GameController.OnBusinessLevelUp -= OnBusinessLevelUp;
         }
         
         public void Setup(string businessId, int level)
@@ -26,7 +25,7 @@ namespace UI
             _levelField.text = $"{level}";
         }
 
-        private void OnBusinessLvlUp(string businessId, int level)
+        private void OnBusinessLevelUp(string businessId, int level)
         {
             if (businessId != _businessId)
                 return;

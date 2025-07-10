@@ -2,7 +2,6 @@ using System.Linq;
 using Components;
 using Leopotam.Ecs;
 using Settings;
-using Systems;
 using TMPro;
 using UnityEngine;
 
@@ -18,14 +17,14 @@ namespace UI
         
         private void Start()
         {
-            LvlUpSystem.OnBusinessLvlUp += OnBusinessLvlUp;
-            UpgradePurchaseSystem.OnBusinessUpgraded += OnBusinessUpgraded;
+            GameController.OnBusinessLevelUp += OnBusinessLevelUp;
+            GameController.OnBusinessUpgraded += OnBusinessUpgraded;
         }
 
         private void OnDestroy()
         {
-            LvlUpSystem.OnBusinessLvlUp -= OnBusinessLvlUp;
-            UpgradePurchaseSystem.OnBusinessUpgraded -= OnBusinessUpgraded;
+            GameController.OnBusinessLevelUp -= OnBusinessLevelUp;
+            GameController.OnBusinessUpgraded -= OnBusinessUpgraded;
         }
 
         public void Setup(EcsEntity entity, BusinessSettings settings, int level)
@@ -36,7 +35,7 @@ namespace UI
             UpdateRevenueField();
         }
 
-        private void OnBusinessLvlUp(string businessId, int level)
+        private void OnBusinessLevelUp(string businessId, int level)
         {
             if (businessId != _settings.Id)
                 return;

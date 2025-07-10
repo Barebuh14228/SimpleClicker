@@ -1,7 +1,6 @@
 using Components;
 using Leopotam.Ecs;
 using Settings;
-using Systems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,14 +22,14 @@ namespace UI
 
         public void Start()
         {
-            BalanceSystem.OnBalanceChanged += OnBalanceChanged;
-            UpgradePurchaseSystem.OnBusinessUpgraded += OnBusinessUpgraded;
+            GameController.OnBalanceChanged += OnBalanceChanged;
+            GameController.OnBusinessUpgraded += OnBusinessUpgraded;
         }
 
         private void OnDestroy()
         {
-            BalanceSystem.OnBalanceChanged -= OnBalanceChanged;
-            UpgradePurchaseSystem.OnBusinessUpgraded -= OnBusinessUpgraded;
+            GameController.OnBalanceChanged -= OnBalanceChanged;
+            GameController.OnBusinessUpgraded -= OnBusinessUpgraded;
         }
 
         public void Setup(EcsWorld world, EcsEntity entity, string businessId, UpgradeSettings settings, bool isPurchased)

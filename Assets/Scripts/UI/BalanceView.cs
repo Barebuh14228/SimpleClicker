@@ -1,4 +1,3 @@
-using Systems;
 using TMPro;
 using UnityEngine;
 
@@ -10,17 +9,12 @@ namespace UI
         
         private void Start()
         {
-            BalanceSystem.OnBalanceChanged += OnBalanceChanged;
+            GameController.OnBalanceChanged += OnBalanceChanged;
         }
 
         private void OnDestroy()
         {
-            BalanceSystem.OnBalanceChanged -= OnBalanceChanged;
-        }
-
-        public void Setup(int balance)
-        {
-            _balanceField.text = balance.ToString();
+            GameController.OnBalanceChanged -= OnBalanceChanged;
         }
         
         private void OnBalanceChanged(int balance)

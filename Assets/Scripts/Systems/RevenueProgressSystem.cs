@@ -9,8 +9,6 @@ namespace Systems
 {
     public class RevenueProgressSystem : IEcsRunSystem
     {
-        public static event Action<string, float> OnRevenueProgressChanged;
-        
         private EcsFilter<BusinessComponent, RevenueProgressComponent> _filter;
 
         private BusinessSettingsList _settingsList;
@@ -37,7 +35,7 @@ namespace Systems
                     _filter.GetEntity(i).Replace(new PaymentComponent());
                 }
                 
-                OnRevenueProgressChanged?.Invoke(business.Id, revenueProgress.Progress);
+                GameController.NotifyRevenueProgressChanged(business.Id, revenueProgress.Progress);
             }
         }
     }

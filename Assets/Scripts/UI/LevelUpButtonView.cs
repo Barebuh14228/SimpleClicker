@@ -1,8 +1,6 @@
-using System;
 using Components;
 using Leopotam.Ecs;
 using Settings;
-using Systems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,14 +21,14 @@ namespace UI
         
         private void Start()
         {
-            BalanceSystem.OnBalanceChanged += OnBalanceChanged;
-            LvlUpSystem.OnBusinessLvlUp += OnBusinessLvlUp;
+            GameController.OnBalanceChanged += OnBalanceChanged;
+            GameController.OnBusinessLevelUp += OnBusinessLevelUp;
         }
 
         private void OnDestroy()
         {
-            BalanceSystem.OnBalanceChanged -= OnBalanceChanged;
-            LvlUpSystem.OnBusinessLvlUp -= OnBusinessLvlUp;
+            GameController.OnBalanceChanged -= OnBalanceChanged;
+            GameController.OnBusinessLevelUp -= OnBusinessLevelUp;
         }
 
         public void Setup(EcsWorld world, EcsEntity entity, BusinessSettings settings, int level)
@@ -49,7 +47,7 @@ namespace UI
             _button.interactable = LvlUpPrice <= balance;
         }
         
-        private void OnBusinessLvlUp(string businessId, int level)
+        private void OnBusinessLevelUp(string businessId, int level)
         {
             if (businessId != _settings.Id)
                 return;

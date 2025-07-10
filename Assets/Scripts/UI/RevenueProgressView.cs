@@ -1,5 +1,3 @@
-using System;
-using Systems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +11,12 @@ namespace UI
 
         private void Start()
         {
-            RevenueProgressSystem.OnRevenueProgressChanged += OnRevenueProgressChanged;
+            GameController.OnRevenueProgressChanged += OnRevenueProgressChanged;
         }
 
         private void OnDestroy()
         {
-            RevenueProgressSystem.OnRevenueProgressChanged -= OnRevenueProgressChanged;
+            GameController.OnRevenueProgressChanged -= OnRevenueProgressChanged;
         }
 
         public void Setup(string businessId, float value)

@@ -1,4 +1,3 @@
-using System;
 using Components;
 using Leopotam.Ecs;
 
@@ -6,8 +5,6 @@ namespace Systems
 {
     public class LvlUpSystem : IEcsRunSystem
     {
-        public static event Action<string, int> OnBusinessLvlUp;
-        
         private EcsFilter<BusinessComponent, LvlUpComponent> _levelUpFilter;
         
         public void Run()
@@ -18,7 +15,7 @@ namespace Systems
                 
                 businessComponent.Level++;
                 
-                OnBusinessLvlUp?.Invoke(businessComponent.Id, businessComponent.Level);
+                GameController.NotifyBusinessLevelUp(businessComponent.Id, businessComponent.Level);
             }
         }
     }
