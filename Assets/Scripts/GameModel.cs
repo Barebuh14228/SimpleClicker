@@ -6,6 +6,7 @@ using Systems;
 
 //текста
 //codestyle
+//refactor
 
 public class GameModel
 {
