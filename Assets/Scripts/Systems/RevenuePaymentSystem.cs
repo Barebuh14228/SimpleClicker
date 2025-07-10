@@ -8,7 +8,7 @@ namespace Systems
     public class RevenuePaymentSystem : IEcsRunSystem
     {
         private EcsWorld _world;
-        private EcsFilter<BusinessComponent, UpgradesComponent, PaymentComponent> _paymentFilter;
+        private EcsFilter<BusinessComponent, UpgradeStatesComponent, PaymentComponent> _paymentFilter;
         
         private BusinessSettingsList _settingsList;
         
@@ -28,7 +28,7 @@ namespace Systems
 
                 var revenue = business.Level * settings.BaseRevenue * modifier;
 
-                _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = (int) revenue });
+                _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = revenue });
             }
         }
     }

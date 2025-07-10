@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct UpgradePurchaseComponent
+    public struct UpgradeComponent
     {
         public string Id;
     }

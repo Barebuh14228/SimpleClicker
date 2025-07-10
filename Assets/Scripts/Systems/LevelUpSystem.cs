@@ -3,9 +3,9 @@ using Leopotam.Ecs;
 
 namespace Systems
 {
-    public class LvlUpSystem : IEcsRunSystem
+    public class LevelUpSystem : IEcsRunSystem
     {
-        private EcsFilter<BusinessComponent, LvlUpComponent> _levelUpFilter;
+        private EcsFilter<BusinessComponent, LevelUpComponent> _levelUpFilter;
         
         public void Run()
         {

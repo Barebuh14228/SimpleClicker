@@ -13,12 +13,18 @@ public class GameModel
         _systems = new EcsSystems(_world)
             .Add(new MainInitSystem())
             .Add(new UpgradePurchaseSystem())
-            .Add(new LvlUpSystem())
+            .Add(new UpgradeSystem())
+            .Add(new LevelUpPurchaseSystem())
+            .Add(new LevelUpSystem())
+            .Add(new RevenueCalculationSystem())
+            .Add(new LevelUpPriceCalculationSystem())
             .Add(new RevenueProgressSystem())
             .Add(new RevenuePaymentSystem())
             .Add(new BalanceSystem())
-            .OneFrame<UpgradePurchaseComponent>()
-            .OneFrame<LvlUpComponent>()
+            .OneFrame<BusinessUpgradeRequest>()
+            .OneFrame<UpgradeComponent>()
+            .OneFrame<BusinessLevelUpRequest>()
+            .OneFrame<LevelUpComponent>()
             .OneFrame<PaymentComponent>()
             .OneFrame<ChangeBalanceComponent>();
     }
@@ -42,5 +48,10 @@ public class GameModel
     public void Inject<T>(T injection)
     {
         _systems.Inject(injection);
+    }
+
+    public void SendRequest<T>(T request) where T : struct
+    {
+        _world.NewEntity().Replace(request);
     }
 }

@@ -14,6 +14,8 @@ namespace Systems
         
         public void Init()
         {
+            //todo default balance
+            
             _world.NewEntity()
                 .Replace(new BalanceComponent())
                 .Replace(new ChangeBalanceComponent() { Value = 1000 });
@@ -25,13 +27,23 @@ namespace Systems
                 var lvl = !firstset ? 1 : 0;
             
                 var entity = _world.NewEntity()
-                    .Replace(new BusinessComponent() { Id = bs.Id, Level = lvl})
+                    .Replace(new BusinessComponent() { Id = bs.Id})
                     .Replace(new RevenueProgressComponent())
-                    .Replace(new UpgradesComponent() { UpgradeStates = bs.UpgradesList.Select(us => us.Id).ToDictionary(id => id, id => false) });
+                    .Replace(new UpgradeStatesComponent() { UpgradeStates = bs.UpgradesList.Select(us => us.Id).ToDictionary(id => id, id => false) });
                 
-                _businessViewParent.InstantiateNewBusinessView().Setup(bs, _world, entity, 0, lvl);
+                //todo add UpgradeComponent on load
                 
-                firstset = true;
+                if (!firstset)
+                {
+                    entity.Replace(new LevelUpComponent());
+                    firstset = true;
+                }
+                else
+                {
+                    entity.Replace(new New());
+                }
+                
+                _businessViewParent.InstantiateNewBusinessView().Setup(bs, 0, lvl);
             }
         }
     }

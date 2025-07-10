@@ -10,7 +10,7 @@ namespace Systems
         
         public void Run()
         {
-            var balanceDiff = 0;
+            var balanceDiff = 0f;
 
             foreach (var i in _changeBalanceFilter)
             {

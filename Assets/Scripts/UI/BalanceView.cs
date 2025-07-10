@@ -17,9 +17,9 @@ namespace UI
             GameController.OnBalanceChanged -= OnBalanceChanged;
         }
         
-        private void OnBalanceChanged(int balance)
+        private void OnBalanceChanged(float balance)
         {
-            _balanceField.text = balance.ToString();
+            _balanceField.text = $"{balance:N0}";
         }
     }
 }

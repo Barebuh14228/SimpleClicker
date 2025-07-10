@@ -2,6 +2,6 @@ namespace Components
 {
     public struct BalanceComponent
     {
-        public int Value;
+        public float Value;
     }
 }

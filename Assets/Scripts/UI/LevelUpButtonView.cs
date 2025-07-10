@@ -1,6 +1,3 @@
-using Components;
-using Leopotam.Ecs;
-using Settings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,56 +9,44 @@ namespace UI
         [SerializeField] private TMP_Text _priceField;
         [SerializeField] private Button _button;
 
-        private BusinessSettings _settings;
-        private int _level;
-        private EcsEntity _businessEntity;
-        private EcsWorld _world;
-        
-        private int LvlUpPrice => _settings.BasePrice * (_level + 1);
+        private string _businessId;
+        private float _price;
         
         private void Start()
         {
             GameController.OnBalanceChanged += OnBalanceChanged;
-            GameController.OnBusinessLevelUp += OnBusinessLevelUp;
+            GameController.OnLevelUpPriceChanged += OnLevelUpPriceChanged;
         }
 
         private void OnDestroy()
         {
             GameController.OnBalanceChanged -= OnBalanceChanged;
-            GameController.OnBusinessLevelUp -= OnBusinessLevelUp;
+            GameController.OnLevelUpPriceChanged -= OnLevelUpPriceChanged;
         }
 
-        public void Setup(EcsWorld world, EcsEntity entity, BusinessSettings settings, int level)
+        public void Setup(string businessId)
         {
-            //todo set interactable (check balance)
-            
-            _world = world;
-            _businessEntity = entity;
-            _settings = settings;
-            _level = level;
-            _priceField.text = $"Цена: {LvlUpPrice} $"; //todo get text
+            _businessId = businessId;
         }
         
-        private void OnBalanceChanged(int balance)
+        private void OnBalanceChanged(float balance)
         {
-            _button.interactable = LvlUpPrice <= balance;
+            _button.interactable = _price <= balance;
         }
         
-        private void OnBusinessLevelUp(string businessId, int level)
+        private void OnLevelUpPriceChanged(string businessId, float price)
         {
-            if (businessId != _settings.Id)
+            if (businessId != _businessId)
                 return;
-
-            _level++;
-            _priceField.text = $"Цена: {LvlUpPrice} $"; //todo get text
+            
+            _price = price;
+            
+            _priceField.text = $"Цена: {_price:N0} $"; //todo get text
         }
         
         public void OnClick()
         {
-            //todo изменить способ вкида компонентов
-            
-            _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = -LvlUpPrice });
-            _businessEntity.Replace(new LvlUpComponent());
+            GameController.SendLevelUpRequest(_businessId);
         }
     }
 }

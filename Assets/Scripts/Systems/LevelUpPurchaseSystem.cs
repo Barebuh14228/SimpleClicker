@@ -5,11 +5,11 @@ using Settings;
 
 namespace Systems
 {
-    public class UpgradePurchaseSystem : IEcsRunSystem
+    public class LevelUpPurchaseSystem : IEcsRunSystem
     {
         private EcsWorld _world;
         private EcsFilter<BusinessComponent> _businessFilter;
-        private EcsFilter<BusinessUpgradeRequest> _requestFilter;
+        private EcsFilter<BusinessLevelUpRequest> _requestFilter;
         
         private BusinessSettingsList _settingsList;
         
@@ -18,19 +18,17 @@ namespace Systems
             foreach (var i in _requestFilter)
             {
                 var businessId = _requestFilter.Get1(i).BusinessId;
-                var upgradeId = _requestFilter.Get1(i).UpgradeId;
-
-                var price = _settingsList
-                    .SettingsList.First(bs => bs.Id == businessId)
-                    .UpgradesList.First(us => us.Id == upgradeId)
-                    .Price;
+                var settings = _settingsList.SettingsList.First(bs => bs.Id == businessId);
                 
                 foreach (var j in _businessFilter)
                 {
                     if (_businessFilter.Get1(j).Id != businessId)
                         continue;
+
+                    var level = _businessFilter.Get1(j).Level;
+                    var price = settings.BasePrice * (level + 1);
                     
-                    _businessFilter.GetEntity(j).Replace(new UpgradeComponent { Id = upgradeId});
+                    _businessFilter.GetEntity(j).Replace(new LevelUpComponent() );
                     _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = -price });
                 }
             }

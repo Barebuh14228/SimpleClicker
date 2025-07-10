@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct LvlUpComponent
+    public struct New
     {
         
     }

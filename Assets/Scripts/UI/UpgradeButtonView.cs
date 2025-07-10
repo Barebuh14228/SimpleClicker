@@ -1,5 +1,3 @@
-using Components;
-using Leopotam.Ecs;
 using Settings;
 using TMPro;
 using UnityEngine;
@@ -15,10 +13,9 @@ namespace UI
         [SerializeField] private Button _button;
 
         private string _businessId;
-        private UpgradeSettings _settings;
+        private string _upgradeId;
+        private float _price;
         private bool _isPurchased;
-        private EcsEntity _businessEntity;
-        private EcsWorld _world;
 
         public void Start()
         {
@@ -32,24 +29,20 @@ namespace UI
             GameController.OnBusinessUpgraded -= OnBusinessUpgraded;
         }
 
-        public void Setup(EcsWorld world, EcsEntity entity, string businessId, UpgradeSettings settings, bool isPurchased)
+        public void Setup(string businessId, UpgradeSettings settings)
         {
-            //todo set interactable (check balance)
-            
-            _world = world;
-            _businessEntity = entity;
             _businessId = businessId;
-            _settings = settings;
-            _isPurchased = isPurchased;
+            _upgradeId = settings.Id;
+            _price = settings.Price;
 
-            _nameField.text = $"\"{_settings.Id}\"" ; //todo get text
-            _priceField.text = $"Цена: {_settings.Price} $"; //todo get text
-            _descriptionField.text = $"Доход: + {_settings.Modifier * 100} %"; //todo get text
+            _nameField.text = $"\"{settings.Id}\"" ; //todo get text
+            _priceField.text = $"Цена: {settings.Price} $"; //todo get text
+            _descriptionField.text = $"Доход: + {settings.Modifier * 100} %"; //todo get text
         }
         
-        private void OnBalanceChanged(int balance)
+        private void OnBalanceChanged(float balance)
         {
-            _button.interactable = _settings.Price <= balance && !_isPurchased;
+            _button.interactable = _price <= balance && !_isPurchased;
         }
         
         private void OnBusinessUpgraded(string businessId, string upgradeId)
@@ -57,19 +50,17 @@ namespace UI
             if (businessId != _businessId)
                 return;
             
-            if (upgradeId != _settings.Id)
+            if (upgradeId != _upgradeId)
                 return;
 
             _isPurchased = true;
             _button.interactable = false;
+            _priceField.text = "КУПЛЕНО !"; //todo get text
         }
 
         public void OnClick()
         {
-            //todo изменить способ вкида компонентов
-            
-            _world.NewEntity().Replace(new ChangeBalanceComponent() { Value = -_settings.Price });
-            _businessEntity.Replace(new UpgradePurchaseComponent() { Id = _settings.Id });
+            GameController.SendUpgradeRequest(_businessId, _upgradeId);
         }
     }
 }
