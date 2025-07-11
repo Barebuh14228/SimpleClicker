@@ -30,6 +30,8 @@ namespace Systems
                     
                     _businessFilter.GetEntity(j).Replace(new LevelUp() );
                     _world.NewEntity().Replace(new AddBalance() { Value = -price });
+                    
+                    break;
                 }
             }
         }

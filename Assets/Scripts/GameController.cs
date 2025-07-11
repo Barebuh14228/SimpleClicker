@@ -17,17 +17,17 @@ public static class GameController
         _model = new GameModel();
     }
     
-    public static void Init()
+    public static void InitModel()
     {
         _model.Init();
     }
 
-    public static void Run()
+    public static void RunModel()
     {
         _model.Run();
     }
 
-    public static void Destroy()
+    public static void DestroyModel()
     {
         _model.Destroy();
     }

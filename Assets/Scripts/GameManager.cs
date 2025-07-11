@@ -18,16 +18,16 @@ public class GameManager : MonoBehaviour
         
         GameController.InjectInModel(_gameSettings);
         GameController.InjectInModel(_businessViewParent);
-        GameController.Init();
+        GameController.InitModel();
     }
 
     private void Update()
     {
-        GameController.Run();
+        GameController.RunModel();
     }
 
     private void OnDestroy()
     {
-        GameController.Destroy();
+        GameController.DestroyModel();
     }
 }

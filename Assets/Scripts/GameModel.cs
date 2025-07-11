@@ -2,11 +2,6 @@ using Components;
 using Leopotam.Ecs;
 using Systems;
 
-//todo list
-
-//codestyle
-//refactor
-
 public class GameModel
 {
     private EcsWorld _world;
