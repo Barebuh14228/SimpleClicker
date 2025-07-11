@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6858707026569181806}
   - component: {fileID: 7237211324394598195}
   - component: {fileID: 5966444431416079966}
+  - component: {fileID: 8688512199910837425}
   m_Layer: 5
   m_Name: Upgrade Button
   m_TagString: Untagged
@@ -215,6 +216,21 @@ MonoBehaviour:
   _priceField: {fileID: 2185332756480270848}
   _descriptionField: {fileID: 8269647251145927089}
   _button: {fileID: 6858707026569181806}
+--- !u!114 &8688512199910837425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394963517251771591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 7237211324394598195}
+  _disableOnStart: 1
 --- !u!1 &4033225854386635620
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +323,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 18
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -441,7 +457,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 18
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -575,7 +591,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 18
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1

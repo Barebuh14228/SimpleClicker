@@ -6,6 +6,7 @@ public class GameModel
 {
     private EcsWorld _world;
     private EcsSystems _systems;
+    private EcsSystems _saveSystems;
 
     public GameModel()
     {
@@ -24,7 +25,6 @@ public class GameModel
             .Add(new RevenueProgressSystem())
             .Add(new RevenuePaymentSystem())
             .Add(new BalanceSystem())
-            .Add(new SaveSystem())
             .OneFrame<UpgradeRequest>()
             .OneFrame<Upgrade>()
             .OneFrame<LevelUpRequest>()
@@ -33,11 +33,14 @@ public class GameModel
             .OneFrame<AddBalance>()
             .OneFrame<NewComponent>()
             .OneFrame<LoadedData>();
+        
+        _saveSystems = new EcsSystems(_world).Add(new SaveSystem());
     }
     
     public void Init()
     {
         _systems.Init();
+        _saveSystems.Init();
     }
 
     public void Run()
@@ -48,6 +51,7 @@ public class GameModel
     public void Destroy()
     {
         _systems.Destroy();
+        _saveSystems.Destroy();
         _world.Destroy();
     }
 
@@ -59,5 +63,10 @@ public class GameModel
     public void SendRequest<T>(T request) where T : struct
     {
         _world.NewEntity().Replace(request);
+    }
+
+    public void Save()
+    {
+        _saveSystems.Run();
     }
 }

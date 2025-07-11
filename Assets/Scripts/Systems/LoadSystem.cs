@@ -19,6 +19,10 @@ namespace Systems
                     SaveData = saveData
                 });
             }
+            else
+            {
+                Debug.Log($"<color=yellow>Save not found</color>");
+            }
         }
         
         private static bool TryLoad(out SaveData result)

@@ -1,3 +1,4 @@
+using System;
 using Leopotam.Ecs;
 using Settings;
 using UI;
@@ -29,5 +30,13 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         GameController.DestroyModel();
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            GameController.SaveModel();
+        }
     }
 }

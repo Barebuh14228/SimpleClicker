@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 40482936709803881}
   - component: {fileID: 5520925698273294875}
   - component: {fileID: 4199770550556183081}
+  - component: {fileID: 6141385480567611714}
   m_Layer: 5
   m_Name: Level Up Button
   m_TagString: Untagged
@@ -176,6 +177,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _priceField: {fileID: 5705889259840938355}
   _button: {fileID: 40482936709803881}
+--- !u!114 &6141385480567611714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650573110831246408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 5520925698273294875}
+  _disableOnStart: 1
 --- !u!1 &967892479375361872
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832931038963592072}
   - component: {fileID: 1435581634061904521}
+  - component: {fileID: 3696871729858858067}
   m_Layer: 5
   m_Name: Upgrades Group
   m_TagString: Untagged
@@ -240,6 +257,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3696871729858858067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967892479375361872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 1435581634061904521}
+  _disableOnStart: 1
 --- !u!1 &1043278928963791158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4554251329156640678}
   - component: {fileID: 8277605381426336273}
+  - component: {fileID: 6592912448668400549}
   m_Layer: 5
   m_Name: Description Group
   m_TagString: Untagged
@@ -1929,6 +1962,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6592912448668400549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442252589238279784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 8277605381426336273}
+  _disableOnStart: 1
 --- !u!1 &8007470414814023570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,6 +1988,9 @@ GameObject:
   - component: {fileID: 7943818442151960976}
   - component: {fileID: 1917283846943645534}
   - component: {fileID: 139179909681394407}
+  - component: {fileID: 2007846232157412345}
+  - component: {fileID: 3927813166115873201}
+  - component: {fileID: 6533577054828864010}
   m_Layer: 5
   m_Name: BusinessEntityView
   m_TagString: Untagged
@@ -2016,6 +2067,61 @@ MonoBehaviour:
   _levelUpButton: {fileID: 4199770550556183081}
   _upgrade1Button: {fileID: 2828062090127514503}
   _upgrade2Button: {fileID: 4279024800363539001}
+--- !u!114 &2007846232157412345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007470414814023570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 1917283846943645534}
+  _disableOnStart: 1
+--- !u!223 &3927813166115873201
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007470414814023570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &6533577054828864010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007470414814023570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8092001816239851430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000662729750485379}
   - component: {fileID: 4381904205035154447}
+  - component: {fileID: 4414701851951712173}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2080,6 +2187,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4414701851951712173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092001816239851430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 4381904205035154447}
+  _disableOnStart: 1
 --- !u!1 &8179778844006634409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506622273156599055}
   - component: {fileID: 7890703202175893957}
+  - component: {fileID: 5878497967795186530}
   m_Layer: 5
   m_Name: Name Container
   m_TagString: Untagged
@@ -2200,6 +2323,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5878497967795186530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294955407063102134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 7890703202175893957}
+  _disableOnStart: 1
 --- !u!1 &8894099322060174155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8963784780836917379}
   - component: {fileID: 5176582291023138145}
+  - component: {fileID: 2099910833131856047}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2357,6 +2496,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2099910833131856047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101690109115675870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 5176582291023138145}
+  _disableOnStart: 1
 --- !u!1001 &7615367046895295591
 PrefabInstance:
   m_ObjectHideFlags: 0

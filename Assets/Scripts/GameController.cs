@@ -83,4 +83,9 @@ public static class GameController
             UpgradeId = upgradeId
         });
     }
+
+    public static void SaveModel()
+    {
+        _model.Save();
+    }
 }

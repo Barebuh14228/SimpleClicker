@@ -401,6 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816928503}
   - component: {fileID: 816928504}
+  - component: {fileID: 816928505}
   m_Layer: 5
   m_Name: Vertical Group
   m_TagString: Untagged
@@ -455,6 +456,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &816928505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816928502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 816928504}
+  _disableOnStart: 1
 --- !u!1 &822729492
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822729493}
   - component: {fileID: 822729494}
+  - component: {fileID: 822729495}
   m_Layer: 5
   m_Name: Bottom Container
   m_TagString: Untagged
@@ -512,6 +529,29 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 9000
   m_LayoutPriority: 1
+--- !u!223 &822729495
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822729492}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1215909983
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423197277}
   - component: {fileID: 1423197278}
+  - component: {fileID: 1423197279}
   m_Layer: 5
   m_Name: Top Container
   m_TagString: Untagged
@@ -685,6 +726,29 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!223 &1423197279
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423197276}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1442954291
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +1016,7 @@ GameObject:
   - component: {fileID: 1627080739}
   - component: {fileID: 1627080738}
   - component: {fileID: 1627080740}
+  - component: {fileID: 1627080741}
   m_Layer: 5
   m_Name: Business View Parent
   m_TagString: Untagged
@@ -1031,6 +1096,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _businessViewPrefab: {fileID: 139179909681394407, guid: 0d59bf473bb641e44aabb5b9a7fe4136, type: 3}
+--- !u!114 &1627080741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627080736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2009f01c9a2174a80ee1486e72274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiBehaviours:
+  - {fileID: 1627080739}
+  - {fileID: 1627080738}
+  _disableOnStart: 1
 --- !u!1 &1634539840
 GameObject:
   m_ObjectHideFlags: 0

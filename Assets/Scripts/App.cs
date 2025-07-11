@@ -3,5 +3,5 @@ using UnityEngine;
 
 public static class App
 {
-    public static string SavePath = Path.Combine(Application.persistentDataPath, "save.json");
+    public static readonly string SavePath = Path.Combine(Application.persistentDataPath, "save.json");
 }

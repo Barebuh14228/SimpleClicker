@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using Components;
@@ -8,13 +7,18 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class SaveSystem : IEcsDestroySystem
+    public class SaveSystem : IEcsRunSystem
     {
         private EcsWorld _world;
         private EcsFilter<Balance> _balanceFilter;
         private EcsFilter<Business, RevenueProgress, RevenueModifier, PurchasedUpgrades> _businessFilter;
+
+        public void Run()
+        {
+            SaveData();
+        }
         
-        public void Destroy()
+        private void SaveData()
         {
             var saveData = new SaveData();
 
